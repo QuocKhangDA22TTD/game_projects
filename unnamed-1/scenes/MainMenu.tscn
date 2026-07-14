@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://bxp6bnabcjbak"]
 
+[ext_resource type="Script" uid="uid://288jumvos8y1" path="res://scripts/main_menu.gd" id="1_yqorp"]
+[ext_resource type="PackedScene" uid="uid://bhp7pom0n5yce" path="res://scenes/Main.tscn" id="2_0ykhv"]
+
 [node name="MainMenu" type="Control" unique_id=865357604]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yqorp")
+main_scene = ExtResource("2_0ykhv")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1139991704]
 layout_mode = 1
@@ -35,3 +40,6 @@ text = "CÀI ĐẶT"
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 2
 text = "THOÁT"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
