@@ -32,6 +32,7 @@ layout_mode = 2
 text = "CÀI ĐẶT"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=469026352]
+process_mode = 3
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 2
 text = "THOÁT"

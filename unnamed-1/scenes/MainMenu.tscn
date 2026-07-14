@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bhp7pom0n5yce" path="res://scenes/Main.tscn" id="2_0ykhv"]
 
 [node name="MainMenu" type="Control" unique_id=865357604]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
