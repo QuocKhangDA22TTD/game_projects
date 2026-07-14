@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c4nuifx0kx6q6"]
+
+[node name="PauseMenu" type="Control" unique_id=1059787539]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=267764427]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_right = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer" unique_id=360272151]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "TIẾP TỤC"
+
+[node name="SettingButton" type="Button" parent="VBoxContainer" unique_id=396854179]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "CÀI ĐẶT"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=469026352]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "THOÁT"
