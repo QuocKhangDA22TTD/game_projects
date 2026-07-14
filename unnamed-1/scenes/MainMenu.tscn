@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bxp6bnabcjbak"]
+
+[node name="MainMenu" type="Control" unique_id=865357604]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1139991704]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_right = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=46415854]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "BẮT ĐẦU"
+
+[node name="SettingButton" type="Button" parent="VBoxContainer" unique_id=926132966]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "CÀI ĐẶT"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=226882423]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "THOÁT"
