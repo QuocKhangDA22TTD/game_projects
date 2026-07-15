@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dq2uvbtqeet"]
+
+[ext_resource type="Script" uid="uid://cw6xa4ywi6c" path="res://scripts/player.gd" id="1_player"]
+[ext_resource type="Texture2D" uid="uid://c82kq6gharhgy" path="res://assets/asset.png" id="2_atlas"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0"]
+atlas = ExtResource("2_atlas")
+region = Rect2(0, 43, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1"]
+atlas = ExtResource("2_atlas")
+region = Rect2(16, 43, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2"]
+atlas = ExtResource("2_atlas")
+region = Rect2(32, 43, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3"]
+atlas = ExtResource("2_atlas")
+region = Rect2(48, 43, 16, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_player"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gun"]
+atlas = ExtResource("2_atlas")
+region = Rect2(19, 7, 26, 5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_player"]
+radius = 6.0
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_player")
+
+[node name="Body" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_player")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_player")
+
+[node name="GunPivot" type="Node2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="GunSprite" type="Sprite2D" parent="GunPivot"]
+position = Vector2(9, 0)
+texture = SubResource("AtlasTexture_gun")
+
+[node name="Muzzle" type="Marker2D" parent="GunPivot"]
+position = Vector2(22, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
