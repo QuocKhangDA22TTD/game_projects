@@ -1,22 +1,22 @@
 [gd_scene format=3 uid="uid://dhjfq1olb04"]
 
 [ext_resource type="Script" uid="uid://cgdfwtnom4v" path="res://scripts/bullet.gd" id="1_bullet"]
-[ext_resource type="Texture2D" uid="uid://c82kq6gharhgy" path="res://assets/asset.png" id="2_atlas"]
+[ext_resource type="Texture2D" uid="uid://byh2e3ylhpg70" path="res://assets/bullet.png" id="2_y25gk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bullet"]
-atlas = ExtResource("2_atlas")
-region = Rect2(53, 7, 6, 3)
+[sub_resource type="AtlasTexture" id="AtlasTexture_y25gk"]
+atlas = ExtResource("2_y25gk")
+region = Rect2(4, 7, 8, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bullet"]
 size = Vector2(6, 3)
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" unique_id=997869165]
 script = ExtResource("1_bullet")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_bullet")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1363054327]
+texture = SubResource("AtlasTexture_y25gk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1289307116]
 shape = SubResource("RectangleShape2D_bullet")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

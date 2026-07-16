@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 120.0
+@export var speed: float = 60.0
 @export var fire_rate: float = 0.2
 @export var bullet_scene: PackedScene
 
@@ -34,6 +34,7 @@ func _aim() -> void:
 	body.flip_h = to_mouse.x < 0.0
 	# Khi súng chĩa sang trái, lật dọc để súng không bị lộn ngược
 	gun_sprite.flip_v = absf(gun_pivot.rotation) > PI / 2.0
+	muzzle.position.y = 1.0 if gun_sprite.flip_v else -1.0
 
 
 func _shoot(delta: float) -> void:
