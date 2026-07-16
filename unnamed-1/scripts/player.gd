@@ -28,7 +28,7 @@ func _move() -> void:
 
 
 func _aim() -> void:
-	var to_mouse := get_global_mouse_position() - global_position
+	var to_mouse := get_global_mouse_position() - gun_pivot.global_position
 	gun_pivot.rotation = to_mouse.angle()
 	# Lật thân theo hướng chuột
 	body.flip_h = to_mouse.x < 0.0
