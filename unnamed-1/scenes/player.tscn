@@ -81,4 +81,3 @@ texture = ExtResource("3_dqkch")
 position = Vector2(22, 0)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=189738013]
-zoom = Vector2(3, 3)
