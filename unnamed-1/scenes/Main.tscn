@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bwfkihe3wytoj" path="res://assets/ground.png" id="1_rarhs"]
 [ext_resource type="PackedScene" uid="uid://dq2uvbtqeet" path="res://scenes/player.tscn" id="2_player"]
 [ext_resource type="PackedScene" uid="uid://dhjfq1olb04" path="res://scenes/bullet.tscn" id="3_bullet"]
+[ext_resource type="PackedScene" uid="uid://e2lr7el53lj" path="res://scenes/pig.tscn" id="4_pig"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vcsgt"]
 texture = ExtResource("1_rarhs")
@@ -26,6 +27,15 @@ tile_set = SubResource("TileSet_fehbo")
 [node name="Player" parent="World/Entities" unique_id=830847908 instance=ExtResource("2_player")]
 position = Vector2(320, 180)
 bullet_scene = ExtResource("3_bullet")
+
+[node name="Pig1" parent="World/Entities" instance=ExtResource("4_pig")]
+position = Vector2(240, 130)
+
+[node name="Pig2" parent="World/Entities" instance=ExtResource("4_pig")]
+position = Vector2(400, 150)
+
+[node name="Pig3" parent="World/Entities" instance=ExtResource("4_pig")]
+position = Vector2(340, 240)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=178540872]
 
