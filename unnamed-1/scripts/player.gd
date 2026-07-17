@@ -47,3 +47,12 @@ func _shoot(delta: float) -> void:
 		bullet.global_position = muzzle.global_position
 		bullet.direction = Vector2.RIGHT.rotated(gun_pivot.rotation)
 		get_parent().add_child(bullet)
+
+
+# InventoryUI gọi khi click ô: thả item ra đất cạnh chân, lụm lại được sau cooldown
+func drop_item(id: String) -> void:
+	var scene: PackedScene = Inventory.ITEM_DB[id].scene
+	var item := scene.instantiate()
+	item.pickup_cooldown = 0.8
+	get_parent().add_child(item)
+	item.global_position = global_position + Vector2.RIGHT.rotated(randf_range(0.0, TAU)) * 14.0

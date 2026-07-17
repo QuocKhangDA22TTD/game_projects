@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://e2lr7el53lj"]
+[gd_scene format=3 uid="uid://e2lr7el53lj"]
 
 [ext_resource type="Script" uid="uid://ejexou86t30" path="res://scripts/pig.gd" id="1_pig"]
 [ext_resource type="Texture2D" uid="uid://x4pnk2bhcfw6" path="res://assets/pig.png" id="2_pig"]
@@ -29,7 +29,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p0")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -49,7 +49,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 8.0
 }]
@@ -57,16 +57,16 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_pig"]
 radius = 5.0
 
-[node name="Pig" type="CharacterBody2D"]
-motion_mode = 1
+[node name="Pig" type="CharacterBody2D" unique_id=68634860]
 collision_layer = 2
 collision_mask = 3
+motion_mode = 1
 script = ExtResource("1_pig")
 
-[node name="Body" type="AnimatedSprite2D" parent="."]
+[node name="Body" type="AnimatedSprite2D" parent="." unique_id=1317359695]
 sprite_frames = SubResource("SpriteFrames_pig")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297188527]
 shape = SubResource("CircleShape2D_pig")

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c7pgvprucb3"]
+
+[ext_resource type="Script" uid="uid://d0nhgmyr8a4" path="res://scripts/pork.gd" id="1_pork"]
+[ext_resource type="Texture2D" uid="uid://bcu3gfkjkcp0p" path="res://assets/pork.png" id="2_pork"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pork"]
+radius = 5.0
+
+[node name="Pork" type="Area2D"]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("1_pork")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pork")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pork")

@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var walk_time_max: float = 2.0
 @export var idle_time_min: float = 0.5
 @export var idle_time_max: float = 1.5
+@export var pork_scene: PackedScene = preload("res://scenes/pork.tscn")
 
 @onready var body: AnimatedSprite2D = $Body
 
@@ -48,8 +49,17 @@ func _pick_next_state() -> void:
 func take_damage(amount: int) -> void:
 	_hp -= amount
 	if _hp <= 0:
-		queue_free()
+		_die()
 		return
 	# Nhấp nháy đỏ khi trúng đạn
 	body.modulate = Color(1.0, 0.35, 0.35)
 	create_tween().tween_property(body, "modulate", Color.WHITE, 0.15)
+
+
+# Heo chết: rớt ra cục thịt tại chỗ rồi biến mất
+func _die() -> void:
+	if pork_scene != null:
+		var pork := pork_scene.instantiate()
+		get_parent().add_child(pork)
+		pork.global_position = global_position
+	queue_free()
