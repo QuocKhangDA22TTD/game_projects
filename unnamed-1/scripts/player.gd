@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var gun_sprite: Sprite2D = $GunPivot/GunSprite
 @onready var muzzle: Marker2D = $GunPivot/Muzzle
 @onready var camera: Camera2D = $Camera2D
+@onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
 
 var _fire_cooldown: float = 0.0
 var _gun_rest_position: Vector2
@@ -59,6 +60,7 @@ func _shoot(delta: float) -> void:
 		bullet.direction = Vector2.RIGHT.rotated(gun_pivot.rotation)
 		get_parent().add_child(bullet)
 		_apply_recoil()
+		shoot_sound.play()
 
 
 # Giật súng lùi về phía sau + rung màn hình
