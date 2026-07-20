@@ -29,17 +29,19 @@ tile_set = SubResource("TileSet_fehbo")
 position = Vector2(320, 180)
 bullet_scene = ExtResource("3_bullet")
 
-[node name="Pig1" parent="World/Entities" instance=ExtResource("4_pig")]
+[node name="Pig1" parent="World/Entities" unique_id=1749501410 instance=ExtResource("4_pig")]
 position = Vector2(240, 130)
 
-[node name="Pig2" parent="World/Entities" instance=ExtResource("4_pig")]
+[node name="Pig2" parent="World/Entities" unique_id=2093039614 instance=ExtResource("4_pig")]
 position = Vector2(400, 150)
 
-[node name="Pig3" parent="World/Entities" instance=ExtResource("4_pig")]
+[node name="Pig3" parent="World/Entities" unique_id=433442757 instance=ExtResource("4_pig")]
 position = Vector2(340, 240)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=178540872]
 
 [node name="PauseMenu" parent="UI" unique_id=1059787539 instance=ExtResource("1_elqb8")]
+offset_left = 1.0
+offset_right = 1.0
 
-[node name="InventoryUI" parent="UI" instance=ExtResource("5_invui")]
+[node name="InventoryUI" parent="UI" unique_id=1357057944 instance=ExtResource("5_invui")]

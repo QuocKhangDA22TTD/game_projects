@@ -3,18 +3,28 @@ extends CharacterBody2D
 @export var speed: float = 60.0
 @export var fire_rate: float = 0.2
 @export var bullet_scene: PackedScene
+@export var recoil_distance: float = 3.0 # súng giật lùi bao nhiêu px mỗi phát
+@export var shake_strength: float = 2.5 # độ rung màn hình khi bắn
 
 @onready var body: AnimatedSprite2D = $Body
 @onready var gun_pivot: Node2D = $GunPivot
 @onready var gun_sprite: Sprite2D = $GunPivot/GunSprite
 @onready var muzzle: Marker2D = $GunPivot/Muzzle
+@onready var camera: Camera2D = $Camera2D
 
 var _fire_cooldown: float = 0.0
+var _gun_rest_position: Vector2
+var _shake: float = 0.0
+
+func _ready() -> void:
+	_gun_rest_position = gun_sprite.position
+
 
 func _physics_process(delta: float) -> void:
 	_move()
 	_aim()
 	_shoot(delta)
+	_update_effects(delta)
 
 
 func _move() -> void:
@@ -41,12 +51,31 @@ func _shoot(delta: float) -> void:
 	_fire_cooldown -= delta
 	if bullet_scene == null:
 		return
-	if Input.is_action_pressed("shoot") and _fire_cooldown <= 0.0:
+	# is_action_just_pressed: mỗi lần nhấp chuột chỉ bắn 1 phát (semi-auto)
+	if Input.is_action_just_pressed("shoot") and _fire_cooldown <= 0.0:
 		_fire_cooldown = fire_rate
 		var bullet := bullet_scene.instantiate()
 		bullet.global_position = muzzle.global_position
 		bullet.direction = Vector2.RIGHT.rotated(gun_pivot.rotation)
 		get_parent().add_child(bullet)
+		_apply_recoil()
+
+
+# Giật súng lùi về phía sau + rung màn hình
+func _apply_recoil() -> void:
+	gun_sprite.position = _gun_rest_position + Vector2(-recoil_distance, 0)
+	_shake = shake_strength
+
+
+# Mỗi frame: súng trượt về vị trí cũ, camera rung tắt dần
+func _update_effects(delta: float) -> void:
+	gun_sprite.position = gun_sprite.position.lerp(_gun_rest_position, 12.0 * delta)
+	if _shake > 0.05:
+		_shake = lerpf(_shake, 0.0, 10.0 * delta)
+		camera.offset = Vector2(randf_range(-_shake, _shake), randf_range(-_shake, _shake))
+	else:
+		_shake = 0.0
+		camera.offset = Vector2.ZERO
 
 
 # InventoryUI gọi khi click ô: thả item ra đất cạnh chân, lụm lại được sau cooldown
