@@ -38,6 +38,63 @@ position = Vector2(400, 150)
 [node name="Pig3" parent="World/Entities" unique_id=433442757 instance=ExtResource("4_pig")]
 position = Vector2(340, 240)
 
+[node name="Pig5" parent="World/Entities" unique_id=68634860 instance=ExtResource("4_pig")]
+position = Vector2(340, 240)
+
+[node name="Pig4" parent="World/Entities" unique_id=62672321 instance=ExtResource("4_pig")]
+position = Vector2(340, 240)
+
+[node name="Pig6" parent="World/Entities" unique_id=425169602 instance=ExtResource("4_pig")]
+position = Vector2(340, 240)
+
+[node name="Pig7" parent="World/Entities" unique_id=939203240 instance=ExtResource("4_pig")]
+position = Vector2(400, 150)
+
+[node name="Pig8" parent="World/Entities" unique_id=161373297 instance=ExtResource("4_pig")]
+position = Vector2(340, 240)
+
+[node name="Pig9" parent="World/Entities" unique_id=1003876498 instance=ExtResource("4_pig")]
+position = Vector2(340, 240)
+
+[node name="Pig10" parent="World/Entities" unique_id=170597000 instance=ExtResource("4_pig")]
+position = Vector2(340, 240)
+
+[node name="Pig11" parent="World/Entities" unique_id=109822024 instance=ExtResource("4_pig")]
+position = Vector2(340, 240)
+
+[node name="Pig12" parent="World/Entities" unique_id=1677549814 instance=ExtResource("4_pig")]
+position = Vector2(240, 130)
+
+[node name="Pig13" parent="World/Entities" unique_id=142544330 instance=ExtResource("4_pig")]
+position = Vector2(400, 150)
+
+[node name="Pig14" parent="World/Entities" unique_id=1301802287 instance=ExtResource("4_pig")]
+position = Vector2(340, 240)
+
+[node name="Pig15" parent="World/Entities" unique_id=663393049 instance=ExtResource("4_pig")]
+position = Vector2(340, 240)
+
+[node name="Pig16" parent="World/Entities" unique_id=1727218367 instance=ExtResource("4_pig")]
+position = Vector2(340, 240)
+
+[node name="Pig17" parent="World/Entities" unique_id=2079295785 instance=ExtResource("4_pig")]
+position = Vector2(340, 240)
+
+[node name="Pig18" parent="World/Entities" unique_id=1127136739 instance=ExtResource("4_pig")]
+position = Vector2(400, 150)
+
+[node name="Pig19" parent="World/Entities" unique_id=1607295225 instance=ExtResource("4_pig")]
+position = Vector2(340, 240)
+
+[node name="Pig20" parent="World/Entities" unique_id=742407485 instance=ExtResource("4_pig")]
+position = Vector2(340, 240)
+
+[node name="Pig21" parent="World/Entities" unique_id=1380186689 instance=ExtResource("4_pig")]
+position = Vector2(340, 240)
+
+[node name="Pig22" parent="World/Entities" unique_id=1660114303 instance=ExtResource("4_pig")]
+position = Vector2(340, 240)
+
 [node name="UI" type="CanvasLayer" parent="." unique_id=178540872]
 
 [node name="PauseMenu" parent="UI" unique_id=1059787539 instance=ExtResource("1_elqb8")]

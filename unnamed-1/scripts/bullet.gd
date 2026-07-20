@@ -31,8 +31,9 @@ func _update_trail() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	# Gây sát thương nếu vật thể có hàm take_damage (heo, enemy sau này)
+	# Truyền kèm hướng đạn để mục tiêu bị đẩy lùi + văng máu đúng chiều
 	if body.has_method("take_damage"):
-		body.take_damage(damage)
+		body.take_damage(damage, direction)
 	_fade_out()
 
 
