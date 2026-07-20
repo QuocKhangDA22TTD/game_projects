@@ -1,9 +1,9 @@
 extends Area2D
 
-@export var speed: float = 460.0 # bay nhanh + có lực hơn (cũ: 260)
+@export var speed: float = 1200.0 # bay nhanh + có lực hơn (cũ: 260)
 @export var lifetime: float = 2.0
 @export var damage: int = 1
-@export var trail_length: int = 12 # số điểm tối đa của vệt bóng mờ
+@export var trail_length: int = 2 # số điểm tối đa của vệt bóng mờ
 
 var direction: Vector2 = Vector2.RIGHT
 
