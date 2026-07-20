@@ -3,8 +3,8 @@ extends CharacterBody2D
 @export var speed: float = 60.0
 @export var fire_rate: float = 0.2
 @export var bullet_scene: PackedScene
-@export var recoil_distance: float = 3.0 # súng giật lùi bao nhiêu px mỗi phát
-@export var shake_strength: float = 2.5 # độ rung màn hình khi bắn
+@export var recoil_distance: float = 12.0 # súng giật lùi bao nhiêu px mỗi phát
+@export var shake_strength: float = 0.25 # độ rung màn hình khi bắn
 
 @onready var body: AnimatedSprite2D = $Body
 @onready var gun_pivot: Node2D = $GunPivot
