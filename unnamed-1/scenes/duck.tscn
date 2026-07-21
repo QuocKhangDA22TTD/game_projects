@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://66y54x2f6y81"]
+
+[ext_resource type="Script" uid="uid://ciepmykgpcg1h" path="res://scripts/duck.gd" id="1_duck"]
+[ext_resource type="Texture2D" uid="uid://d02xgwf28egr6" path="res://assets/duck.png" id="2_duck"]
+[ext_resource type="AudioStream" uid="uid://djdx4uxnpfbgm" path="res://audio/duck_damaged.wav" id="3_hurt"]
+[ext_resource type="AudioStream" uid="uid://b5aoti86b2lfo" path="res://audio/duck_normal.wav" id="4_quack"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0"]
+atlas = ExtResource("2_duck")
+region = Rect2(0, 0, 12, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1"]
+atlas = ExtResource("2_duck")
+region = Rect2(12, 0, 12, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2"]
+atlas = ExtResource("2_duck")
+region = Rect2(24, 0, 12, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3"]
+atlas = ExtResource("2_duck")
+region = Rect2(36, 0, 12, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4"]
+atlas = ExtResource("2_duck")
+region = Rect2(48, 0, 12, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_duck"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_duck"]
+radius = 4.0
+
+[node name="Duck" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_duck")
+
+[node name="Body" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_duck")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_duck")
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hurt")
+
+[node name="QuackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_quack")
+
+[node name="BloodParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 12
+lifetime = 0.45
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(1, 0)
+spread = 40.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 90.0
+damping_min = 120.0
+damping_max = 200.0
+scale_amount_min = 0.8
+scale_amount_max = 1.6
+color = Color(0.72, 0.05, 0.05, 1)
